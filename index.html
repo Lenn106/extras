@@ -1,191 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lenn106 - Bio Website</title>
+  <title>Extras Page</title>
   <style>
     body {
-      color: #ffffff;
-      font-family: Arial, sans-serif;
-      margin: 0;
-    }
-
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background-color: #111;
-      background-size: cover;
-      background-position: center;
-      z-index: -1;
-    }
-
-    h1 {
-      color: #ffffff;
-      margin: 0;
-      padding: 20px;
-      background-color: #323232;
       text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #111111;
+      margin-top: 150px; /* Increased margin-top to accommodate the footer */
     }
+    /* Styles for the footer */
+.footer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-color: #333333;
+  color: #ffffff;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      height: 80vh; /* Adjust the height value as desired */
-    }
+/* Styles for the dropdown menu */
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  position: relative;
+  margin-top: 40px;
+}
 
-    .box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px; /* Adjust the padding value as desired */
-      background-color: #323232;
-      border-radius: 10px;
-      width: 60%; /* Adjust the width value as desired */
-      max-width: 400px;
-      margin-top: 120px;
-      position: relative; /* Added */
-    }
+.dropdown-title {
+  font-size: 24px;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #333333;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
 
-    .box button {
-      margin-bottom: 10px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      background-color: #323232;
-      color: #ffffff;
-      cursor: pointer;
-      outline: none;
-      transition: background-color 0.3s ease;
-    }
+.dropdown-title:hover {
+  background-color: #555555;
+}
 
-    .box button:hover {
-      background-color: #525252;
-    }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333333;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  width: 500px;
+  padding: 5px;
+  margin-top: 90px;
+  z-index: 1;
+}
 
-    .search-bar {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-    }
+.dropdown-content.show {
+  display: block;
+}
 
-    .search-bar input {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      background-color: #525252;
-      color: #ffffff;
-      font-size: 14px;
-      caret-color: #ffffff;
-      outline: none;
-    }
+/* Styles for the code input */
+.code-input {
+  width: 100%;
+  height: 200px;
+  border: none;
+  border-radius: 8px;
+  padding: 1px;
+  margin-top: 10px;
+  color: #ffffff;
+  background-color: #333333;
+  font-family: monospace;
+  font-size: 16px;
+  resize: none;
+  outline: none; /* Remove outline */
+}
 
-    .search-results {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      padding: 10px;
-      background-color: #525252;
-      color: #ffffff;
-      border-radius: 5px;
-      font-size: 14px;
-      display: none;
-      z-index: 1; /* Added */
-    }
+.run-button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #333333;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-    .search-results.open {
-      display: block;
-    }
+.run-button:hover {
+  background-color: #555555;
+}
 
-    .search-results .close-button {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      padding: 5px;
-      color: #ffffff;
-      font-size: 16px;
-      font-weight: bold;
-      background-color: transparent;
-      border: none;
-      outline: none;
-      cursor: pointer;
-    }
-
-    .footer {
-      background-color: #323232;
-      height: 100px;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #ffffff;
-      font-size: 14px;
-    }
-
-    .footer a {
-      color: #ffffff;
-      text-decoration: none;
-    }
+/* Styles for particles */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
 <body>
-  <div id="particles-js"></div>
-  <h1>Lenn106</h1>
-  <div class="container">
-    <div class="box">
-      <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search..." onkeyup="handleSearch(event)">
-      </div>
-      <div id="searchResults" class="search-results"></div>
-      <button onclick="window.location.href='https://lenn106.github.io/projects'">GitHub Projects</button>
-      <button onclick="window.location.href='https://lenn106.github.io/about'">About Me</button>
-      <button onclick="window.location.href='https://lenn106.github.io/videos'">Videos </button>
-      <button onclick="window.location.href='https://lenn106.github.io/extras'">Extras</button>
-      <button onclick="window.location.href='https://lenn106.github.io/settings'">Settings</button>
+  <!-- Footer -->
+  <div class="footer">
+    <h2>Extras</h2>
+  </div>
+  <!-- Dropdown Menu -->
+  <div class="dropdown">
+    <div class="dropdown-title" onclick="toggleDropdown()">Live HTML Runner <i id="dropdown-icon" class="fa fa-chevron-down"></i></div>
+    <div id="dropdown-content" class="dropdown-content">
+      <textarea id="htmlInput" class="code-input" placeholder="Enter HTML code..."></textarea>
+      <div class="line"></div>
+      <button class="run-button" onclick="runHTML()">Run HTML with Scripts</button>
     </div>
   </div>
-  <div class="footer">
-    <p>All software on this website is open source and free to use, unless otherwise stated. Learn more at <a href="https://unlicense.org/" target="_blank" rel="noopener noreferrer">https://unlicense.org/</a></p>
-  </div>
-
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
+  <!-- Particle JS Library -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
+    // Toggle the dropdown menu
+    function toggleDropdown() {
+      var dropdownContent = document.getElementById('dropdown-content');
+      var dropdownIcon = document.getElementById('dropdown-icon');
+      
+      dropdownContent.classList.toggle('show');
+      dropdownIcon.classList.toggle('fa-chevron-down');
+      dropdownIcon.classList.toggle('fa-chevron-up');
+    }
+
+    // Particle Background Configuration
     particlesJS("particles-js", {
       particles: {
         number: {
           value: 80,
           density: {
             enable: true,
-            value_area: 800,
-          },
+            value_area: 800
+          }
         },
         color: {
-          value: "#ffffff",
+          value: "#ffffff"
         },
         shape: {
           type: "circle",
           stroke: {
             width: 0,
-            color: "#000000",
+            color: "#000000"
           },
           polygon: {
-            nb_sides: 5,
+            nb_sides: 5
           },
           image: {
-            src: "img/github.svg",
+            src: "https://cdn.jsdelivr.net/gh/taniarascia/particle@dev/particle.png",
             width: 100,
-            height: 100,
-          },
+            height: 100
+          }
         },
         opacity: {
           value: 0.5,
@@ -194,8 +173,8 @@
             enable: false,
             speed: 1,
             opacity_min: 0.1,
-            sync: false,
-          },
+            sync: false
+          }
         },
         size: {
           value: 3,
@@ -204,19 +183,19 @@
             enable: false,
             speed: 40,
             size_min: 0.1,
-            sync: false,
-          },
+            sync: false
+          }
         },
         line_linked: {
           enable: true,
           distance: 150,
           color: "#ffffff",
           opacity: 0.4,
-          width: 1,
+          width: 1
         },
         move: {
           enable: true,
-          speed: 2,
+          speed: 6,
           direction: "none",
           random: false,
           straight: false,
@@ -225,123 +204,66 @@
           attract: {
             enable: false,
             rotateX: 600,
-            rotateY: 1200,
-          },
-        },
+            rotateY: 1200
+          }
+        }
       },
       interactivity: {
         detect_on: "canvas",
         events: {
           onhover: {
             enable: false,
-            mode: "repulse",
+            mode: "repulse"
           },
           onclick: {
             enable: false,
-            mode: "push",
+            mode: "push"
           },
-          resize: true,
+          resize: true
         },
         modes: {
           grab: {
             distance: 400,
             line_linked: {
-              opacity: 1,
-            },
+              opacity: 1
+            }
           },
           bubble: {
             distance: 400,
             size: 40,
             duration: 2,
             opacity: 8,
-            speed: 3,
+            speed: 3
           },
           repulse: {
-            distance: 200,
-            duration: 0.4,
+            distance: 200
           },
           push: {
-            particles_nb: 4,
+            particles_nb: 4
           },
           remove: {
-            particles_nb: 2,
-          },
-        },
+            particles_nb: 2
+          }
+        }
       },
-      retina_detect: true,
+      retina_detect: true
     });
-  </script>
-  <script>
-    function handleSearch(event) {
-      if (event.key === 'Enter') {
-        const searchInput = document.getElementById('searchInput');
-        const searchQuery = searchInput.value.toLowerCase();
-        const searchResults = document.getElementById('searchResults');
 
-        // Define the search result data
-        const searchResultData = {
-          neomenu: {
-            title: 'Neo Menu',
-            description: 'An Old i-Ready Hack I made.',
-            link: 'https://lenn106.github.io/NeoMenu'
-          },
-           youtube: {
-            title: 'HELP',
-            description: 'please help me I dont know how search bars work',
-            link: 'https://dsc.gg/lenn106'
-          },
-          discord: {
-            title: 'Here is my Discord Server',
-            description: 'AH',
-            link: 'https://dsc.gg/lenn106'
-          },
-        };
+    // Function to run HTML code with scripts
+    function runHTML() {
+      var htmlCode = document.getElementById('htmlInput').value;
+      var newWindow = window.open();
+      newWindow.document.write(htmlCode);
+      newWindow.document.close();
 
-        // Retrieve the blocked words
-        fetch('https://raw.githubusercontent.com/Lenn106/lenn106.github.io/998250d77ac5397e0274ba8872f18ea94aed52f2/swearlist')
-          .then(response => response.text())
-          .then(data => {
-            const blockedWords = data.split(',');
-
-            if (searchQuery.trim().length > 0) {
-              if (containsBlockedWords(searchQuery, blockedWords)) {
-                searchResults.innerHTML = 'This search contains blocked words.';
-                searchResults.classList.add('open');
-              } else if (searchQuery in searchResultData) {
-                const resultHTML = `
-                  <h3>${searchResultData[searchQuery].title}</h3>
-                  <p>${searchResultData[searchQuery].description}</p>
-                  <a href="${searchResultData[searchQuery].link}">Learn More</a>
-                  <button class="close-button" onclick="closeSearchResults()">X</button>
-                `;
-                searchResults.innerHTML = resultHTML;
-                searchResults.classList.add('open');
-              } else {
-                searchResults.innerHTML = `No results found for "${searchQuery}".`;
-                searchResults.classList.add('open');
-              }
-            } else {
-              searchResults.innerHTML = '';
-              searchResults.classList.remove('open');
-            }
-          })
-          .catch(error => {
-            console.error('Error retrieving blocked words:', error);
-          });
+      var scriptTags = newWindow.document.getElementsByTagName('script');
+      for (var i = 0; i < scriptTags.length; i++) {
+        var scriptCode = scriptTags[i].innerHTML;
+        eval(scriptCode);
       }
     }
-
-    function containsBlockedWords(query, blockedWords) {
-      const words = query.toLowerCase().split(' ');
-      return words.some(word => blockedWords.includes(word));
-    }
-
-    function closeSearchResults() {
-      const searchResults = document.getElementById('searchResults');
-      searchResults.innerHTML = '';
-      searchResults.classList.remove('open');
-    }
   </script>
-</body>
+<a href="https://lenn106.github.io/particles" target="_blank" style="position: fixed; bottom: 20px; right: 20px; color: white; text-decoration: none; font-family: Arial, sans-serif; font-size: 18px;">Background Particle Info</a>
 
+</body>
 </html>
