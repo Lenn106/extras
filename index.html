@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Extras Page</title>
   <style>
     body {
@@ -9,111 +12,143 @@
       background-color: #111111;
       margin-top: 150px; /* Increased margin-top to accommodate the footer */
     }
+    
     /* Styles for the footer */
-.footer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background-color: #333333;
-  color: #ffffff;
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Styles for the dropdown menu */
-.dropdown {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center horizontally */
-  position: relative;
-  margin-top: 40px;
-}
-
-.dropdown-title {
-  font-size: 24px;
-  color: #ffffff;
-  cursor: pointer;
-  padding: 10px;
-  background-color: #333333;
-  border: none;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.dropdown-title:hover {
-  background-color: #555555;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #333333;
-  border: 1px solid #ffffff;
-  border-radius: 8px;
-  width: 500px;
-  padding: 5px;
-  margin-top: 90px;
-  z-index: 1;
-}
-
-.dropdown-content.show {
-  display: block;
-}
-
-/* Styles for the code input */
-.code-input {
-  width: 100%;
-  height: 200px;
-  border: none;
-  border-radius: 8px;
-  padding: 1px;
-  margin-top: 10px;
-  color: #ffffff;
-  background-color: #333333;
-  font-family: monospace;
-  font-size: 16px;
-  resize: none;
-  outline: none; /* Remove outline */
-}
-
-.run-button {
-  display: inline-block;
-  padding: 12px 24px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #ffffff;
-  background-color: #333333;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.run-button:hover {
-  background-color: #555555;
-}
-
-/* Styles for particles */
-#particles-js {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
+    .footer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background-color: #333333;
+      color: #ffffff;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Styles for the dropdown menu */
+    .dropdown {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center horizontally */
+      position: relative;
+      margin-top: 40px;
+    }
+    
+    .dropdown-title {
+      font-size: 24px;
+      color: #ffffff;
+      cursor: pointer;
+      padding: 10px;
+      background-color: #333333;
+      border: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .dropdown-title:hover {
+      background-color: #555555;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333333;
+      border: 1px solid #ffffff;
+      border-radius: 8px;
+      width: 500px;
+      padding: 5px;
+      margin-top: 90px;
+      z-index: 1;
+    }
+    
+    .dropdown-content.show {
+      display: block;
+    }
+    
+    /* Styles for the code input */
+    .code-input {
+      width: 100%;
+      height: 200px;
+      border: none;
+      border-radius: 8px;
+      padding: 1px;
+      margin-top: 10px;
+      color: #ffffff;
+      background-color: #333333;
+      font-family: monospace;
+      font-size: 16px;
+      resize: none;
+      outline: none; /* Remove outline */
+    }
+    
+    .run-button {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffffff;
+      background-color: #333333;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .run-button:hover {
+      background-color: #555555;
+    }
+    
+    /* Styles for particles */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    
+    /* Styles for the popup container */
+    .popup-container {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #333333;
+      padding: 20px;
+      border-radius: 8px;
+      width: 400px;
+      height: 300px;
+      color: #ffffff;
+      z-index: 2;
+    }
+    
+    .popup-container.show {
+      display: block;
+    }
+    
+    .popup-close {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      font-size: 20px;
+      color: #ffffff;
+      cursor: pointer;
+    }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
   <!-- Footer -->
   <div class="footer">
     <h2>Extras</h2>
   </div>
+  
   <!-- Dropdown Menu -->
   <div class="dropdown">
     <div class="dropdown-title" onclick="toggleDropdown()">Live HTML Runner <i id="dropdown-icon" class="fa fa-chevron-down"></i></div>
@@ -123,8 +158,23 @@
       <button class="run-button" onclick="runHTML()">Run HTML with Scripts</button>
     </div>
   </div>
+  
+  <!-- Easter Eggs Popup Container -->
+  <div id="easterEggsPopup" class="popup-container">
+    <h2>Easter Eggs</h2>
+    <p>Here is the documentation of all the Easter eggs in the website and what they do:</p>
+    <ul>
+      <li>Cha Cha Slide:</a>
+      <a>Plays the Cha Cha Slide music when the user searces for "chachaslide" on the main page.</a>
+ 
+      <!-- Add more Easter eggs and their descriptions -->
+    </ul>
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+  </div>
+  
   <!-- Particle Background -->
   <div id="particles-js"></div>
+  
   <!-- Particle JS Library -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
@@ -138,6 +188,32 @@
       dropdownIcon.classList.toggle('fa-chevron-up');
     }
 
+    // Function to run HTML code with scripts
+    function runHTML() {
+      var htmlCode = document.getElementById('htmlInput').value;
+      var newWindow = window.open();
+      newWindow.document.write(htmlCode);
+      newWindow.document.close();
+
+      var scriptTags = newWindow.document.getElementsByTagName('script');
+      for (var i = 0; i < scriptTags.length; i++) {
+        var scriptCode = scriptTags[i].innerHTML;
+        eval(scriptCode);
+      }
+    }
+    
+    // Open the Easter Eggs popup container
+    function openPopup() {
+      var popup = document.getElementById('easterEggsPopup');
+      popup.classList.add('show');
+    }
+    
+    // Close the Easter Eggs popup container
+    function closePopup() {
+      var popup = document.getElementById('easterEggsPopup');
+      popup.classList.remove('show');
+    }
+    
     // Particle Background Configuration
     particlesJS("particles-js", {
       particles: {
@@ -248,22 +324,9 @@
       },
       retina_detect: true
     });
-
-    // Function to run HTML code with scripts
-    function runHTML() {
-      var htmlCode = document.getElementById('htmlInput').value;
-      var newWindow = window.open();
-      newWindow.document.write(htmlCode);
-      newWindow.document.close();
-
-      var scriptTags = newWindow.document.getElementsByTagName('script');
-      for (var i = 0; i < scriptTags.length; i++) {
-        var scriptCode = scriptTags[i].innerHTML;
-        eval(scriptCode);
-      }
-    }
   </script>
-<a href="https://lenn106.github.io/particles" target="_blank" style="position: fixed; bottom: 20px; right: 20px; color: white; text-decoration: none; font-family: Arial, sans-serif; font-size: 18px;">Background Particle Info</a>
-
+  <a href="https://lenn106.github.io/particles" target="_blank" style="position: fixed; bottom: 20px; right: 20px; color: white; text-decoration: none; font-family: Arial, sans-serif; font-size: 18px;">Background Particle Info</a>
+  <button onclick="openPopup()" style="position: fixed; bottom: 20px; left: 20px; padding: 10px; font-size: 18px; font-weight: bold; color: white; background-color: #333333; border: none; border-radius: 8px; cursor: pointer;">Easter Eggs</button>
 </body>
+
 </html>
